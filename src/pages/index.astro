@@ -1,0 +1,418 @@
+---
+import '../styles/styles.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KomaShift - Local Comic Reader & Context-Aware AI Translation</title>
+  <meta name="description" content="An effortless desktop reader for your local comic library. Enjoy seamless folder navigation with on-demand, context-aware AI translation using your own API key or local LLM." />
+  <link rel="icon" type="image/png" href="/assets/icon.png" />
+  <link rel="shortcut icon" href="/assets/icon.ico" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="KomaShift home">
+      <span class="brand-mark" aria-hidden="true" style="padding:0; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+        <img src="/assets/icon.png" alt="KomaShift logo" width="30" height="30" style="object-fit:contain; border-radius:6px;" />
+      </span>
+      <span>KomaShift<small>Local comic reader &amp; AI translation</small></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" type="button" aria-expanded="false" data-menu="product">
+          Product
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="menu" id="menu-product">
+          <a href="#highlights"><b>Core Highlights</b><span>Folder reading to clean release</span></a>
+          <a href="#features"><b>Features</b><span>Queue, models &amp; deep controls</span></a>
+          <a href="#gallery"><b>Screenshots</b><span>Reader, queue &amp; batch tools</span></a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" type="button" aria-expanded="false" data-menu="resources">
+          Resources
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="menu" id="menu-resources">
+          <a href="#faq"><b>FAQ</b><span>Privacy, modes & compatibility</span></a>
+          <a href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener"><b>GitHub repo</b><span>Source code & issues</span></a>
+          <a href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener"><b>Releases</b><span>Standalone Windows builds</span></a>
+        </div>
+      </div>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+
+    <div class="nav-side">
+      <a class="nav-star" href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 9.2 8.6 2 9.2l5.5 4.7L5.8 21 12 17.3 18.2 21l-1.7-7.1L22 9.2l-7.2-.6Z"/></svg>
+        Star
+      </a>
+      <a class="btn btn-primary" href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener">Download</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-panel" data-mobile-panel>
+    <a href="#highlights">Highlights</a>
+    <a href="#features">Features</a>
+    <a href="#gallery">Screenshots</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-primary" href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener">Download</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Read your local comic library with ease and <em>translate on demand using your own AI.</em></h1>
+      <p class="hero-sub">Browse nested subdirectories and read your comic archives effortlessly. Whenever you hit a language barrier, connect your existing AI subscription or local LLM for context-aware translations that understand full scenes and character relationships—proofread overlays live, and finalize clean pages whenever you're ready.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          Download for Windows
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener">View source</a>
+      </div>
+      <div class="platform-pills">
+        <span class="platform-label">Planned for future release:</span>
+        <span class="platform-pill">macOS</span>
+        <span class="platform-pill">Linux</span>
+        <span class="platform-pill">Android</span>
+      </div>
+      <p class="hero-note">Free and open source. Local speech bubble detection and OCR run on your PC with zero subscription lock-in.</p>
+
+      <div class="hero-shot">
+        <div class="window" aria-label="Application screenshot: KomaShift reading view with speech bubble translation">
+          <div class="window-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="title">KomaShift v1.0.35</span>
+          </div>
+          <img src="/assets/app-reader.png" width="1197" height="777" alt="KomaShift reading mode: folder tree on the left, high-resolution comic page in the center, and asynchronous thumbnail strip along the bottom." />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Highlights -->
+  <section class="alt" id="highlights">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Core Highlights</span>
+        <h2>Effortless reading meets context-aware translation.</h2>
+        <p class="lede">No database lock-in, no rigid subscriptions. Browse your entire collection and bring your own AI when you need it.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="num">01</span>
+          <h3>Pick any comic folder</h3>
+          <p>Recursively scans your directory tree instantly, surfacing every subfolder containing comic pages and remembering your reading progress across sessions.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">02</span>
+          <h3>Context-aware translation on demand</h3>
+          <p>Translate dialogue using your own OpenAI-compatible API or local LLM. Multi-bubble context ensures natural conversational nuance across panels instead of stiff word-by-word substitutions.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">03</span>
+          <h3>Live overlays &amp; quick in-place editor</h3>
+          <p>Translations render as sharp vector overlays directly over speech bubbles. Catch missed text, tweak dialogue phrasing, or toggle original artwork instantly with the T key.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">04</span>
+          <h3>Finalize into clean image releases</h3>
+          <p>Once proofreading is complete, render and rasterize the clean dialogue into permanent, high-resolution image files in a sibling folder with one click (Ctrl+B).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Features</span>
+        <h2>Engineered for collectors, readers, and translators.</h2>
+        <p class="lede">Deep architectural control: background processing queues, switchable vision models, and reader ergonomics.</p>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <h3>Asynchronous queue manager</h3>
+          <p>Heavy bubble detection, OCR, and AI translation process in a dedicated background queue with rate and pause controls, keeping the reading UI completely fluid and bottleneck-free.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+          <h3>Quick in-place translation editor</h3>
+          <p>Click and edit text directly inside speech bubbles. Correct OCR typos, refine tone, or manually translate missed bubbles right on the canvas before committing.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span>
+          <h3>Switchable local ONNX models</h3>
+          <p>Easily swap between different local ONNX bubble segmentation models to optimize detection accuracy for varied comic art styles, resolutions, and page layouts.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+          <h3>Dual translation modes</h3>
+          <p>Choose Token-Efficient Mode (local ONNX + local OCR + text LLM for ultra-low cost) or Visual Hybrid Mode with vision LLMs for deep scene context and zero OCR typos.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+          <h3>Continuous nav with lock-in zoom</h3>
+          <p>Reaching the last image of a chapter seamlessly transitions into the next folder's first page. Your chosen zoom level and fit mode remain locked across folder boundaries.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <h3>100% offline-first privacy</h3>
+          <p>Neural speech bubble detection and Japanese OCR run strictly on your local hardware. Your files stay on your machine, with zero external telemetry.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+          <h3>One-click rasterization</h3>
+          <p>Press Ctrl+B to finalize your polished overlays into clean, standalone image files in a sibling folder—ready for web viewers, tablets, or archive sharing.</p>
+        </div>
+        <div class="card reveal">
+          <span class="fi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+          <h3>Safe archive management</h3>
+          <p>Batch-rename chapters with live diff tables, sort subdirectories, and delete unwanted folders safely via Windows Recycle Bin integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="alt" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Screenshots</span>
+        <h2>See KomaShift in action.</h2>
+        <p class="lede">Reading view, page selection, live activity logs, and custom AI model configuration in native Windows dark mode.</p>
+      </div>
+
+      <div class="gallery">
+        <div class="shot reveal">
+          <div class="window">
+            <div class="window-bar">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="title">KomaShift - Reading View</span>
+            </div>
+            <img src="/assets/app-reader.png" width="1197" height="777" alt="Reading mode with folder tree on left, active comic page, and thumbnail strip below." />
+          </div>
+          <div class="caption">
+            <h3>Reading view</h3>
+            <p>Folder browser, full comic page view, and thumbnail strip in a unified interface.</p>
+          </div>
+        </div>
+
+        <div class="gallery-3">
+          <div class="shot reveal">
+            <div class="window">
+              <div class="window-bar">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="title">Translation Queue — Page Selection</span>
+              </div>
+              <img src="/assets/app-queue-pages.png" width="868" height="594" alt="The translation queue window showing page selection, cache status, and page thumbnails." />
+            </div>
+            <div class="caption">
+              <h3>Page selection &amp; caching</h3>
+              <p>Select specific pages to translate or process entire chapters with cache tracking.</p>
+            </div>
+          </div>
+
+          <div class="shot reveal">
+            <div class="window">
+              <div class="window-bar">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="title">Translation Queue — Activity Log</span>
+              </div>
+              <img src="/assets/app-queue-log.png" width="866" height="591" alt="The activity log view showing timestamped processing steps per page." />
+            </div>
+            <div class="caption">
+              <h3>Real-time activity log</h3>
+              <p>A timestamped trace of every background step: bubble segmentation, OCR, and AI requests.</p>
+            </div>
+          </div>
+
+          <div class="shot reveal">
+            <div class="window">
+              <div class="window-bar">
+                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                <span class="title">Translation Queue — API &amp; Model Configuration</span>
+              </div>
+              <img src="/assets/app-queue-config.png" width="871" height="592" alt="The API and translation configuration tab showing OpenAI-compatible setup and model selection." />
+            </div>
+            <div class="caption">
+              <h3>BYO AI model configuration</h3>
+              <p>Easily configure OpenAI-compatible endpoints, custom models, and token-efficient engines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="alt">
+    <div class="container">
+      <div class="stats reveal">
+        <div class="stat"><div class="n">MIT</div><div class="l">Open-source license</div></div>
+        <div class="stat"><div class="n">BYO AI</div><div class="l">Cloud APIs or Local LLMs</div></div>
+        <div class="stat"><div class="n">100%</div><div class="l">Local bubble detection</div></div>
+        <div class="stat"><div class="n">PyQt6</div><div class="l">Native Windows desktop</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt" id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-head reveal">
+          <span class="label">FAQ</span>
+          <h2>Questions, answered.</h2>
+          <p class="lede">Everything about library browsing, translation models, privacy, and file safety.</p>
+        </div>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">01</span>
+                <span class="faq-q">What makes KomaShift different from other comic readers?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">KomaShift is built as a frictionless local comic reader first: point it to any comic folder, enjoy continuous chapter navigation with locked-in zoom, and browse nested subdirectories without importing. When you encounter untranslated chapters, bring your own AI key or local model to translate with full context, review the overlays live, and finalize clean pages at your own pace.</div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">02</span>
+                <span class="faq-q">How does context-aware AI translation work?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">Unlike legacy machine translation that processes isolated words or disconnected speech bubbles, KomaShift leverages Large Language Models (LLMs) to understand scene relationships and character dialogue across panels. Choose Token-Efficient Mode (local detection + OCR + text LLM for pennies per volume) or Visual Hybrid Mode (vision LLMs like Gemini or GPT-4o for nuanced artistic context).</div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">03</span>
+                <span class="faq-q">Can I use my existing AI subscriptions or run local models?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">Yes. KomaShift supports standard OpenAI-compatible endpoints, allowing you to use your existing API keys (OpenAI, Gemini, Anthropic, OpenRouter) or run 100% offline models via local tools like Ollama and LM Studio. You only pay provider rates for what you use, with zero middleman markups.</div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">04</span>
+                <span class="faq-q">Why doesn't KomaShift automatically overwrite my original images?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">Translation models and OCR can occasionally miss text or misinterpret phrasing. KomaShift keeps translations as an editable live draft overlay so you can proofread, correct typos, and adjust styling. Once you are satisfied, one-click rasterization (Ctrl+B) finalizes the clean, translated pages into a sibling folder, leaving your original files untouched.</div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">05</span>
+                <span class="faq-q">How does the queue manager prevent UI freezes?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">All compute-heavy operations—neural bubble segmentation, OCR, and AI network requests—are routed through an asynchronous background queue. This prevents UI stuttering, respects API rate limits, and gives you real-time visibility into token costs and page progress while you continue reading.</div>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>
+                <span class="faq-index">06</span>
+                <span class="faq-q">Which platforms are supported?</span>
+                <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+              </summary>
+              <div class="faq-a">KomaShift is currently built as a native desktop application for 64-bit Windows 10 and Windows 11 (distributed as a standalone portable executable). Support for macOS, Linux, and Android is planned for future releases.</div>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Read your comic library without language barriers.</h2>
+        <p>Effortless folder navigation, context-aware AI translation on demand, and complete control before finalizing.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener">Download for Windows</a>
+          <a class="btn btn-ghost" href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener">Star on GitHub</a>
+        </div>
+        <div class="platform-pills">
+          <span class="platform-label">Planned for future release:</span>
+          <span class="platform-pill">macOS</span>
+          <span class="platform-pill">Linux</span>
+          <span class="platform-pill">Android</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true" style="padding:0; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+            <img src="/assets/icon.png" alt="KomaShift logo" width="30" height="30" style="object-fit:contain; border-radius:6px;" />
+          </span>
+          <span>KomaShift<small>Local comic reader &amp; AI translation</small></span>
+        </a>
+        <p>An open-source Windows desktop reader for local comic collections with on-demand context-aware AI translation.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#gallery">Screenshots</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener">Repository</a></li>
+            <li><a href="https://github.com/miftahulmuhaemen/komashift/releases" target="_blank" rel="noopener">Releases</a></li>
+            <li><a href="https://github.com/miftahulmuhaemen/komashift/issues" target="_blank" rel="noopener">Issues</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-row">
+      <span>© 2026 KomaShift contributors · MIT License</span>
+      <div class="socials">
+        <a href="https://github.com/miftahulmuhaemen/komashift" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/script.js"></script>
+</body>
+</html>
