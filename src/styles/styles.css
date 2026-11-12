@@ -470,6 +470,7 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 .gallery { display: grid; gap: 40px; }
 .shot { display: grid; gap: 16px; }
 .gallery-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.gallery-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .caption h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.015em; }
 .caption p { font-size: 14.5px; color: var(--ink-mute); margin-top: 4px; }
 
@@ -720,6 +721,7 @@ footer {
   .nav-side { gap: 10px; }
   .hero { padding-top: calc(var(--nav-height) + 24px); }
   .cards { grid-template-columns: repeat(2, 1fr); }
+  .gallery-3 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: none; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
